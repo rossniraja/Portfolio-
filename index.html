@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rossni R — Frontend Developer</title>
+<meta name="description" content="Portfolio of Rossni R, Frontend Developer. React projects, resume and contact details.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);--text:#eef2ff;--mute:#9aa4bf;--v:#8b5cf6;--c:#22d3ee;--p:#f472b6;--g:#34d399;--o:#fb923c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f7f8ff;--card:rgba(255,255,255,.8);--line:rgba(30,30,80,.12);--text:#14162b;--mute:#585f7a}}
+:root[data-theme="dark"]{--bg:#070b14;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);--text:#eef2ff;--mute:#9aa4bf}
+:root[data-theme="light"]{--bg:#f7f8ff;--card:rgba(255,255,255,.8);--line:rgba(30,30,80,.12);--text:#14162b;--mute:#585f7a}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);height:auto}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(600px 400px at 15% 8%,rgba(139,92,246,.30),transparent 70%),radial-gradient(560px 420px at 88% 22%,rgba(34,211,238,.20),transparent 70%),radial-gradient(520px 400px at 50% 95%,rgba(244,114,182,.18),transparent 70%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0%,#000 10%,transparent 70%);opacity:.5}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+.grad{background:linear-gradient(90deg,var(--c),var(--v) 50%,var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:14px}
+nav .logo{font-weight:700}
+nav .links{display:flex;gap:22px;color:var(--mute)}
+nav .links a:hover{color:var(--c)}
+.hero{padding:84px 0 64px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--g);margin-bottom:22px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 10px var(--g)}
+h1{font-size:clamp(40px,9vw,76px);line-height:1.05;margin:0 0 18px;font-weight:700;letter-spacing:-.03em}
+.cur{display:inline-block;width:.45ch;height:.85em;background:var(--c);vertical-align:-.06em;margin-left:8px;animation:bl 1s steps(1) infinite;border-radius:2px}
+@keyframes bl{50%{opacity:0}}
+.role{font-size:clamp(17px,3vw,22px);color:var(--mute);max-width:640px;margin:0 0 32px}
+.role b{color:var(--text);font-weight:600}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 24px;border-radius:12px;font-size:15px;font-weight:600;border:1px solid var(--line);cursor:pointer;background:var(--card);color:var(--text);font-family:inherit;transition:.25s}
+.btn.p{background:linear-gradient(90deg,var(--v),var(--c));border:0;color:#fff;box-shadow:0 8px 30px -8px var(--v)}
+.btn:hover{transform:translateY(-3px)}
+#rmsg{font-size:13px;color:var(--mute);margin-top:12px;min-height:20px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+.stat{padding:12px 18px;border:1px solid var(--line);background:var(--card);border-radius:12px;font-size:13px;color:var(--mute)}
+.stat b{display:block;font-size:18px;color:var(--text);font-family:'JetBrains Mono',monospace}
+section{padding:60px 0}
+h2{font-size:30px;margin:0 0 8px;font-weight:700;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 32px}
+.about p{margin:0 0 14px;color:var(--mute);max-width:680px;font-size:17px}
+.about p b{color:var(--text);font-weight:600}
+.edu{margin-top:22px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:15px}
+.edu span{color:var(--c)}
+.grid{display:grid;gap:24px}
+.proj{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;transition:.3s;backdrop-filter:blur(8px)}
+.proj:hover{transform:translateY(-4px);border-color:var(--ac)}
+.proj.f{grid-template-columns:1fr;border-color:rgba(139,92,246,.45);box-shadow:0 20px 60px -25px var(--v)}
+.proj.f .body{display:grid;grid-template-columns:1.1fr 1fr}
+.vis{padding:28px;display:flex;align-items:center;justify-content:center;min-height:240px;background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 22%,transparent),transparent 70%)}
+.info{padding:28px;display:flex;flex-direction:column}
+.info h3{margin:0 0 10px;font-size:24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.info p{margin:0 0 14px;color:var(--mute);font-size:15px}
+.info p.u{color:var(--text)}
+.info p.u b{color:var(--ac)}
+.badge{font-size:11px;padding:4px 10px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-weight:500}
+.badge.w{background:rgba(251,146,60,.15);color:var(--o);border:1px solid rgba(251,146,60,.4)}
+.badge.w::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--o);margin-right:6px;animation:bl 1.2s steps(1) infinite}
+.badge.l{background:rgba(52,211,153,.12);color:var(--g);border:1px solid rgba(52,211,153,.35)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 20px}
+.chip{font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--text);background:var(--card)}
+.plinks{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap;font-size:14px}
+.plinks a{padding:9px 16px;border-radius:10px;background:var(--ac);color:#0b0b1a;font-weight:600}
+.plinks a.o{background:transparent;color:var(--text);border:1px solid var(--line)}
+.plinks a:hover{filter:brightness(1.12)}
+.plinks span{color:var(--mute);padding:9px 0}
+.kb{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:300px}
+.kb div{background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:10px;padding:10px}
+.kb i{display:block;height:7px;border-radius:4px;margin-bottom:9px;width:60%}
+.kb em{display:block;height:24px;border-radius:7px;margin-bottom:7px;border:1px solid var(--line)}
+.kb .a i{background:var(--c)}.kb .a em:first-of-type{background:rgba(34,211,238,.25)}
+.kb .b i{background:var(--p)}.kb .b em:first-of-type{background:rgba(244,114,182,.25)}
+.kb .d i{background:var(--g)}.kb .d em:first-of-type{background:rgba(52,211,153,.25)}
+.kb em{background:var(--card)}
+.hm{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;width:100%;max-width:300px}
+.hm span{aspect-ratio:1;border-radius:4px;background:var(--line)}
+.chart{width:100%;max-width:440px}
+.risk{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;font-size:12px;font-family:'JetBrains Mono',monospace}
+.risk span{padding:5px 11px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.2)}
+.risk .h{color:#ff6b81;border-color:rgba(255,107,129,.5)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;border-top:3px solid var(--ac)}
+.sk h4{margin:0 0 14px;font-size:14px;font-weight:600;color:var(--ac)}
+.sk .chips{margin:0}
+.cl{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.cl a{display:block;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:.25s;word-break:break-word}
+.cl a:hover{transform:translateY(-3px);border-color:var(--ac)}
+.cl small{display:block;color:var(--ac);font-size:12px;margin-bottom:4px}
+footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+@media(max-width:760px){.proj,.proj.f .body{grid-template-columns:1fr}.vis{min-height:190px}nav .links{gap:14px}.hero{padding:52px 0 40px}}
+@media(prefers-reduced-motion:reduce){.cur,.badge.w::before{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="mono"><a href="#top" class="logo grad">rossni.dev</a><div class="links"><a href="#projects">projects</a><a href="#skills">skills</a><a href="#contact">contact</a></div></nav>
+
+<header class="hero" id="top">
+<div class="pill mono"><i></i>Open to work · Frontend / Junior Full Stack</div>
+<h1>Hi, I'm <span class="grad">Rossni</span><span class="cur"></span></h1>
+<p class="role"><b>Frontend Developer</b> who builds clean, fast React interfaces, and turns raw data into products people can actually use.</p>
+<div class="btns">
+<a class="btn p" href="#projects">View projects</a>
+<a class="btn" href="Rossni_R_Resume.pdf" download>Download resume</a>
+<a class="btn" href="#contact">Contact me</a>
+</div>
+<div class="stats">
+<div class="stat"><b>3</b>projects</div>
+<div class="stat"><b>React 19</b>primary stack</div>
+<div class="stat"><b>2027</b>B.Sc. CS graduate</div>
+</div>
+</header>
+
+<section class="about" id="about">
+<h2>About <span class="grad">me</span></h2>
+<p>Final-year B.Sc. Computer Science student. I like turning ideas into <b>working, deployed products</b> with clear component structure and predictable state.</p>
+<p>Looking for a Frontend / Junior Full Stack role where I can learn from a strong team and contribute quickly. Open to relocation.</p>
+<div class="edu"><div>B.Sc. Computer Science · Vivekananda College</div><span class="mono">2024 – 2027 · CGPA 8.1</span></div>
+</section>
+
+<section id="projects">
+<h2>Selected <span class="grad">projects</span></h2>
+<p class="sub">What I've built, and what I'm building now.</p>
+<div class="grid">
+
+<article class="proj f" style="--ac:var(--v)">
+<div class="body">
+<div class="vis">
+<div class="chart">
+<svg viewBox="0 0 440 230" width="100%" role="img" aria-label="Groundwater level chart with anomaly and forecast">
+<defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22d3ee" stop-opacity=".45"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></linearGradient></defs>
+<g stroke="rgba(255,255,255,.08)"><path d="M0 50H440M0 100H440M0 150H440M0 200H440"/></g>
+<path d="M0 70 C40 66 60 80 90 76 S140 60 170 82 S215 110 245 135 L245 215 L0 215Z" fill="url(#ar)"/>
+<path d="M0 70 C40 66 60 80 90 76 S140 60 170 82 S215 110 245 135" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+<path d="M245 135 C285 160 330 175 440 188" fill="none" stroke="#f472b6" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
+<circle cx="245" cy="135" r="14" fill="#ff6b81" opacity=".25"/><circle cx="245" cy="135" r="6" fill="#ff6b81"/>
+<text x="258" y="122" fill="#ff6b81" font-size="12" font-family="JetBrains Mono,monospace">anomaly</text>
+<text x="330" y="168" fill="#f472b6" font-size="12" font-family="JetBrains Mono,monospace">forecast</text>
+</svg>
+<div class="risk"><span class="h">RISK · HIGH</span><span>z-score 2.8</span><span>trend ↓</span></div>
+</div></div>
+<div class="info">
+<h3>NIVORA <span class="badge w">IN PROGRESS</span></h3>
+<p>A groundwater intelligence platform that monitors groundwater levels, detects unusual changes, evaluates risk, and forecasts future conditions.</p>
+<p class="u"><b>What makes it different:</b> it turns raw groundwater data into early warnings and actionable insights instead of just displaying charts.</p>
+<div class="chips mono"><span class="chip">React</span><span class="chip">Flask</span><span class="chip">pandas</span><span class="chip">PostgreSQL</span><span class="chip">Leaflet</span></div>
+<div class="plinks mono"><span>Live demo coming soon</span></div>
+</div>
+</div>
+</article>
+
+<article class="proj" style="--ac:var(--c)">
+<div class="vis"><div class="kb">
+<div class="a"><i></i><em></em><em></em></div>
+<div class="b"><i></i><em></em></div>
+<div class="d"><i></i><em></em><em></em><em></em></div>
+</div></div>
+<div class="info">
+<h3>FlowBoard <span class="badge l">LIVE</span></h3>
+<p>Multi-view task tracker with Board, List and Calendar views driven by one shared state. Full CRUD with custom modal forms and drag-and-drop.</p>
+<div class="chips mono"><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">dnd-kit</span><span class="chip">Vercel</span></div>
+<div class="plinks mono"><a href="https://flowboard-views.vercel.app/" target="_blank" rel="noopener">Live demo ↗</a><a class="o" href="https://github.com/rossniraja" target="_blank" rel="noopener">GitHub ↗</a></div>
+</div>
+</article>
+
+<article class="proj" style="--ac:var(--p)">
+<div class="vis"><div class="hm" id="hm"></div></div>
+<div class="info">
+<h3>StudyFlow <span class="badge l">LIVE</span></h3>
+<p>Five-page study dashboard with a Pomodoro focus timer, task manager, subject tracking and activity heatmaps. Built with vanilla JavaScript.</p>
+<div class="chips mono"><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Netlify</span></div>
+<div class="plinks mono"><a href="https://studyflow-studytracker.netlify.app/" target="_blank" rel="noopener">Live demo ↗</a><a class="o" href="https://github.com/rossniraja" target="_blank" rel="noopener">GitHub ↗</a></div>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="skills">
+<h2>Tech <span class="grad">stack</span></h2>
+<p class="sub">Tools I use to build.</p>
+<div class="skills">
+<div class="sk" style="--ac:var(--c)"><h4 class="mono">Frontend</h4><div class="chips mono"><span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Vite</span></div></div>
+<div class="sk" style="--ac:var(--v)"><h4 class="mono">Languages</h4><div class="chips mono"><span class="chip">Python</span><span class="chip">Java</span><span class="chip">C++</span></div></div>
+<div class="sk" style="--ac:var(--p)"><h4 class="mono">Tools</h4><div class="chips mono"><span class="chip">Git / GitHub</span><span class="chip">Vercel</span><span class="chip">Netlify</span><span class="chip">ESLint</span></div></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Let's <span class="grad">talk</span></h2>
+<p class="sub">Open to Frontend and Junior Full Stack roles. Reach me anywhere below.</p>
+<div class="cl">
+<a href="mailto:rossniraja@gmail.com" style="--ac:var(--c)"><small class="mono">email</small>rossniraja@gmail.com</a>
+<a href="tel:+919952194232" style="--ac:var(--g)"><small class="mono">phone</small>+91 99521 94232</a>
+<a href="https://github.com/rossniraja" target="_blank" rel="noopener" style="--ac:var(--v)"><small class="mono">github</small>github.com/rossniraja</a>
+<a href="https://www.linkedin.com/in/rossniraja/" target="_blank" rel="noopener" style="--ac:var(--p)"><small class="mono">linkedin</small>linkedin.com/in/rossniraja</a>
+</div>
+</section>
+
+<footer class="mono">© 2026 Rossni R</footer>
+</div>
+
+<script>
+(function(){
+var hm=document.getElementById('hm'),cols=['#f472b6','#8b5cf6','#22d3ee'],seed=11;
+for(var i=0;i<60;i++){seed=(seed*9301+49297)%233280;var r=seed/233280;var s=document.createElement('span');if(r>.3){s.style.background=cols[i%3];s.style.opacity=(.25+r*.75).toFixed(2)}hm.appendChild(s)}
+})();
+</script>
+</body>
+</html>
